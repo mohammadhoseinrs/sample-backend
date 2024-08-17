@@ -105,6 +105,7 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true ,
+    "types": ["node", "express", "mongoose", "jsonwebtoken", "multer", "cors", "bcrypt"]
   },
   
     "include": ["src/**/*"],

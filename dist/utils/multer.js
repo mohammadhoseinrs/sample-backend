@@ -10,7 +10,7 @@ const uploader = multer_1.default.diskStorage({
         cb(null, path_1.default.join(__dirname, "..", "public", "posts"));
     },
     filename: (req, file, cb) => {
-        const fileName = Date.now() + (Math.random() * 9999);
+        const fileName = Date.now() + Math.random() * 9999;
         const ext = path_1.default.extname(file.originalname);
         cb(null, fileName + ext);
     },

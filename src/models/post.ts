@@ -16,7 +16,8 @@ export interface Ipost extends Document {
   tags: string[];
   creator: PopulatedDoc<Document<ObjectId> & IUser>;
   like:string[],
-  bookmark:String[]
+  bookmark:String[],
+  _id:string | Types.ObjectId
 }
 
 type postModelType = Model<Ipost>;
