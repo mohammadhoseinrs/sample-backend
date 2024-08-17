@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var auth_1 = require("../controllers/auth");
+var isToken_1 = require("../middlewares/isToken");
+var router = (0, express_1.Router)();
+router.route("/register").post(auth_1.register);
+router.route('/login').post(auth_1.login);
+router.route('/getMe').get(isToken_1.default, auth_1.getMe);
+exports.default = router;

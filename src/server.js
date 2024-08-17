@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var db_1 = require("./configs/db");
+var dotenv_1 = require("dotenv");
+var cors_1 = require("cors");
+var auth_1 = require("./routers/auth");
+var post_1 = require("./routers/post");
+var path_1 = require("path");
+dotenv_1.default.config();
+var app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: false }));
+app.use((0, cors_1.default)());
+app.use("/posts", express_1.default.static(path_1.default.join(__dirname, "public", "posts")));
+(0, db_1.default)();
+var PORT = process.env.PORT || 4000;
+app.listen(PORT, function () {
+    console.log("server is connected to ".concat(PORT));
+});
+app.use("/auth", auth_1.default);
+app.use("/post", post_1.default);
